@@ -33,12 +33,13 @@ setInterval(function() {
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 	if (message == 'getcookise') {
+		console.log('sssssss');
 		chrome.cookies.get({
 			url : 'http://www.vmall.com/',
-			name : 'user'
+			name : 'ac_loNa'
 		}, function(cookie) {
 			sendResponse(cookie.value);
 		});
-
+		
 	}
 });

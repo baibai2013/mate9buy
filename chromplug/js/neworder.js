@@ -25,14 +25,31 @@ function httpRequest(url, callback) {
 // chrome.browserAction.setIcon({path:
 // 'images/'+(cookie.value?'online.png':'offline.png')});
 // });
+// window.onload=function(){
+// chrome.runtime.sendMessage("getcookise", function(response) {
+// console.log('response');
+// console.log(response);
+// });
+// }
 
-chrome.runtime.sendMessage("getcookise", function(response) {
-	console.log(response);
-});
 
-chrome.cookies.get({
-	'url' : 'http://www.vmall.com/',
-	'name' : 'user'
-}, function(cookie) {
-	console.log('user:' + cookie.value);
+document.addEventListener('DOMContentLoaded', function() {
+	chrome.runtime.sendMessage("getcookise", function(response) {
+		console.log('response');
+		console.log(response);
 });
+	
+})
+
+// chrome.cookies.getAll({'url':'http://www.vmall.com'}, function(cookie) {
+// var cookie_str;
+// for(i in cookie) {
+// name = cookie[i].name;
+// value = cookie[i].value;
+// cookie_str += (name + "=" + value + ";\n");
+// }
+// console.log(cookie_str);
+//	
+// })
+
+
