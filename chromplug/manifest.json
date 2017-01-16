@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name":"购买9",
+    "version": "1.0",
+    "description": "mate9",
+    "icons": {
+        "16": "images/online.png",
+        "48": "images/online.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/online.png",
+            "38": "images/online.png"
+        },
+        "default_title": "mate9",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://www.vmall.com/","http://www.ip138.com/"],
+            "js": ["js/neworder.js"]
+        }
+    ],
+    "permissions": [
+    	 "tabs", "cookies", "http://*/*", "https://*/*", "background"
+    ],
+     "background": {
+        "scripts": [
+            "js/status.js"
+        ]
+    }
+}
