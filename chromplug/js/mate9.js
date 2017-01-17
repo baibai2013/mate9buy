@@ -31,7 +31,7 @@ user.getcookieByName = function (key) {
 }
 user.getLoginPars= function() {
 	var c = "";
-	for (i = 0; i < a.length; i += 1) {
+	for (var i = 0; i < loginPars.length; i += 1) {
 		var d = encodeURIComponent(user.cookies.get(loginPars[i]));
 		if (d) {
 			c += "&" + loginPars[i] + "=" + d
@@ -166,6 +166,6 @@ $(document).ready(function(){
 
 	user.getcookies();
 	$("#tjdd").click(function () {
-		$("#cookie_div").html(user.getcookieByName('user'));
+		user.setorder();
 	})
 });
