@@ -1,17 +1,30 @@
 /**
- * 
+ * 页面注入
  */
 
-function httpRequest(url, callback) {
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", url, true);
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4) {
-			callback(xhr.responseText);
-		}
-	}
-	xhr.send();
+
+function saveInitData(){
+	var s =$("body").html();
+	var regx_activityid = /ec.activityId = \d{4,5};/g;
+	var activityId = regx_activityid.exec(s)[0];
+
 }
+
+$(document).ready(function(){
+	saveInitData();
+});
+
+
+//function httpRequest(url, callback) {
+//	var xhr = new XMLHttpRequest();
+//	xhr.open("GET", url, true);
+//	xhr.onreadystatechange = function() {
+//		if (xhr.readyState == 4) {
+//			callback(xhr.responseText);
+//		}
+//	}
+//	xhr.send();
+//}
 
 // httpRequest('http://www.ip138.com', function(ip){
 // console.log(ip);
@@ -25,21 +38,10 @@ function httpRequest(url, callback) {
 // chrome.browserAction.setIcon({path:
 // 'images/'+(cookie.value?'online.png':'offline.png')});
 // });
-// window.onload=function(){
-// chrome.runtime.sendMessage("getcookise", function(response) {
-// console.log('response');
-// console.log(response);
-// });
-// }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-	chrome.runtime.sendMessage("getcookise", function(response) {
-		console.log('response');
-		console.log(response);
-});
-	
-})
+
+
 
 // chrome.cookies.getAll({'url':'http://www.vmall.com'}, function(cookie) {
 // var cookie_str;
